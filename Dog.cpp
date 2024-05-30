@@ -7,7 +7,7 @@ using namespace std;
 
 Dog::Dog(std::string name) {//constructor function
     this->name = name;
-    cout << this->name<<" is alive!"<<endl;
+    cout << this->name << " is alive!" << endl;
 }
 
 
@@ -28,7 +28,7 @@ void Dog::bark(int numTimes) {//barking, depends on weight +/- 100 lbs
             cout << "WOOF!!! ";
         }
     }
-    cout<<endl;
+    cout << endl;
 }
 
 void Dog::wag(int numTimes, int howFast) {
@@ -36,7 +36,13 @@ void Dog::wag(int numTimes, int howFast) {
         cout << "Wag time! Wag  " << numTimes << " times!" << endl;
         cout << "Happiness Factor (wag speed): " << howFast << endl;
         wagHelper(numTimes, howFast);
-        cout<<endl;
+        cout << endl;
+        //delete Bone, setting dog to not happy..if bone != null ptr, checks to see if bone is pointing to something, if so, delete it
+        if (bone != nullptr){
+            delete bone;
+            bone = nullptr;
+        }
+        isHappy = false; //purple in clion means attribute, this arrow optional
     } else return;
 }//0 - 1000
 
@@ -57,26 +63,30 @@ void Dog::wagHelper(int numTimes, int howFast) {
 }
 
 void Dog::setWeight(float weight) {//weight of dog over 0 lbs
-    if (weight <= 0){
+    if (weight <= 0) {
         return;
-    }
-    else {
-        this->weight = weight;
+    } else {
+        this->weight = weight;//this not optional bc of weight parameter, right side is the parameter, left is internal
     }
 }
 
 void Dog::setNumberOfLegs(int numLegs) { //0 - 4 at least 3 to run
-if (numLegs < 0 or numLegs > 4){
-    numLegs = 4;
-}}
+    if (numLegs < 0 or numLegs > 4) {
+        numLegs = 4;
+    }
+}
 
 void Dog::setHappiness(bool isHappy) { //addBone function makes dog happy
+    this->isHappy = isHappy; //setter, set internal property left side assign to incoming value/parameter
 }
 
 void Dog::addBone() { //sets happiness to true **dynamically declares a new Bone**
+    this->bone = new Bone(); //this optional, no parameter//new is dynamically assigned can delete it after wag
+    this->isHappy = true; //this optional
 }
+
 //Destructor
 Dog::~Dog() {
     this->name = name;
-    cout << this->name<<" is no longer with us."<<endl;
+    cout << this->name << " is no longer with us." << endl;
 }

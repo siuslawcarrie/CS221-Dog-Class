@@ -6,3 +6,4 @@
     {
         cout << "The dog has a bone." << endl;
     }
+//create destructor

@@ -1,7 +1,10 @@
 //
 // Created by siusl on 5/29/2024.
 //
+#include "Bone.h"
+
 using namespace std;
+
 
 #ifndef CS221_DOG_CLASS_DOG_H
 #define CS221_DOG_CLASS_DOG_H
@@ -18,6 +21,7 @@ private://ATTRIBUTES
     bool isHappy; //default true
     string name; //any value
     void wagHelper(int numTimes, int howFast);//function to print wags within wag function
+    Bone* bone;
 
 public: //Member function declarations
     Dog(string name);

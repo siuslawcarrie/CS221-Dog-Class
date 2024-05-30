@@ -9,6 +9,7 @@
 using namespace std;
 
 class Bone {
+public:
     Bone();//constructor declaration
     ~Bone();//destructor declaration
 };
