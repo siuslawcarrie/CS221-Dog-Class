@@ -1,3 +1,8 @@
-//
-// Created by siusl on 5/29/2024.
-//
+#include <iostream>
+#include "Bone.h"
+
+
+    Bone::Bone()
+    {
+        cout << "The dog has a bone." << endl;
+    }

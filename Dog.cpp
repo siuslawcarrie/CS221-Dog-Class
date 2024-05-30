@@ -5,9 +5,9 @@
 
 using namespace std;
 
-Dog::Dog(std::string x) {
-    this->name = x;
-    cout << this->name;
+Dog::Dog(std::string name) {//constructor function
+    this->name = name;
+    cout << this->name<<" is alive!"<<endl;
 }
 
 
@@ -28,6 +28,7 @@ void Dog::bark(int numTimes) {//barking, depends on weight +/- 100 lbs
             cout << "WOOF!!! ";
         }
     }
+    cout<<endl;
 }
 
 void Dog::wag(int numTimes, int howFast) {
@@ -35,16 +36,22 @@ void Dog::wag(int numTimes, int howFast) {
         cout << "Wag time! Wag  " << numTimes << " times!" << endl;
         cout << "Happiness Factor (wag speed): " << howFast << endl;
         wagHelper(numTimes, howFast);
+        cout<<endl;
     } else return;
 }//0 - 1000
 
 void Dog::wagHelper(int numTimes, int howFast) {
+    int sleepytime = howFast * 1000;//variable to convert usleep microseconds to milliseconds
     for (int i = 0; i < numTimes; i++) {
         if (i % 2 == 0) {
             cout << "\\ ";
         } else {
             cout << "/ ";
         }
+        usleep(sleepytime);//pause between wags
+        cout.flush();
+
+
     }
     cout << endl;
 }
@@ -67,4 +74,9 @@ void Dog::setHappiness(bool isHappy) { //addBone function makes dog happy
 }
 
 void Dog::addBone() { //sets happiness to true **dynamically declares a new Bone**
+}
+//Destructor
+Dog::~Dog() {
+    this->name = name;
+    cout << this->name<<" is no longer with us."<<endl;
 }
