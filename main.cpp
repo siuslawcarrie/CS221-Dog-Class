@@ -10,7 +10,7 @@ int main() {
 
 
 //PROGRAM
-    dog1.run(5, 8);// dog runs 3+ legs
+    dog1.run(5, 800);// dog runs 3+ legs
     dog1.wag(13, 200);//0 - 1000
     dog1.setWeight(89);//weight of dog over 0 lbs
     dog1.bark(9);//barking, depends on weight +/- 100 lbs

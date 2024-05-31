@@ -20,6 +20,7 @@ private://ATTRIBUTES
     float weight; //dog's weight, 1 - 200
     bool isHappy; //default true
     string name; //any value
+    void runHelper(int numTimes, int howFast);//function to print # for running
     void wagHelper(int numTimes, int howFast);//function to print wags within wag function
     Bone* bone;
 

@@ -12,6 +12,28 @@ Dog::Dog(std::string name) {//constructor function
 
 
 void Dog::run(int howFar, int howFast) {// dog runs 3+ legs
+    if (howFast >= 0 and howFast <= 1000) {
+        if (howFar >= 0 and howFar <= 1000) {
+//            if (this->numberOfLegs >= 3) {
+//                if (numberOfLegs == 3) {
+                    howFast *= 1.25;
+                    runHelper(howFar, howFast);
+//                } else {
+//                    runHelper(howFar, howFast);
+//                }
+//            }
+        }
+    }
+}
+
+void Dog::runHelper(int numTimes, int howFast) {
+    int sleepytime = howFast * 1000;//variable to convert usleep microseconds to milliseconds
+    for (int i = 0; i < numTimes; i++) {
+        cout << "# ";
+//        cout.flush();
+        usleep(sleepytime);//pause between wags
+    }
+    cout << endl;
 
 }
 
@@ -38,7 +60,7 @@ void Dog::wag(int numTimes, int howFast) {
         wagHelper(numTimes, howFast);
         cout << endl;
         //delete Bone, setting dog to not happy..if bone != null ptr, checks to see if bone is pointing to something, if so, delete it
-        if (bone != nullptr){
+        if (bone != nullptr) {
             delete bone;
             bone = nullptr;
         }
@@ -66,23 +88,21 @@ void Dog::setWeight(float weight) {//weight of dog over 0 lbs
     if (weight <= 0) {
         return;
     } else {
-        this->weight = weight;//this not optional bc of weight parameter, right side is the parameter, left is internal
+        this->weight = weight;//"this" not optional bc of weight parameter, right side is the parameter, left is internal
     }
 }
 
 void Dog::setNumberOfLegs(int numLegs) { //0 - 4 at least 3 to run
-    if (numLegs < 0 or numLegs > 4) {
-        numLegs = 4;
+    this->numberOfLegs = numLegs;
     }
-}
 
 void Dog::setHappiness(bool isHappy) { //addBone function makes dog happy
     this->isHappy = isHappy; //setter, set internal property left side assign to incoming value/parameter
 }
 
 void Dog::addBone() { //sets happiness to true **dynamically declares a new Bone**
-    this->bone = new Bone(); //this optional, no parameter//new is dynamically assigned can delete it after wag
-    this->isHappy = true; //this optional
+    this->bone = new Bone(); //"this" optional, no parameter//new is dynamically assigned can delete it after wag
+    this->isHappy = true; //"this" optional
 }
 
 //Destructor
