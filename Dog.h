@@ -26,13 +26,14 @@ private://ATTRIBUTES
 
 public: //Member function declarations
     Dog(string name);
-    void run(int howFar, int howFast);// dog runs 3+ legs
-    void bark(int numTimes);//barking, depends on weight +/- 100 lbs
-    void wag(int numTimes, int howFast);//0 - 1000
     void setWeight(float weight);//weight of dog over 0 lbs
     void setNumberOfLegs(int numLegs); //0 - 4 at least 3 to run
     void setHappiness(bool isHappy); //addBone function makes dog happy
     void addBone(); //sets happiness to true **dynamically declares a new Bone**
+    void run(int howFar, int howFast);// dog runs 3+ legs
+    void bark(int numTimes);//barking, depends on weight +/- 100 lbs
+    void wag(int numTimes, int howFast);//0 - 1000
+
     ~Dog();
 };
 
