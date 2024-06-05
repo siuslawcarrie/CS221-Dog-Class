@@ -14,15 +14,15 @@ class Dog{
 
 private://ATTRIBUTES
 
-    int numberOfLegs; //number of legs, 0 - 4
-    string eyeColor; //eye color, any value
-    string furColor; //fur color, any value
-    float weight; //dog's weight, 1 - 200
-    bool isHappy; //default true
-    string name; //any value
+    int numberOfLegs =4; //number of legs, 0 - 4
+    string eyeColor = ""; //eye color, any value
+    string furColor = ""; //fur color, any value
+    float weight = 0.0; //dog's weight, 1 - 200
+    bool isHappy = true; //default true
+    string name = ""; //any value
     void runHelper(int numTimes, int howFast);//function to print # for running
     void wagHelper(int numTimes, int howFast);//function to print wags within wag function
-    Bone* bone;
+    Bone* bone = nullptr; //nullptr avoids pointer going to a random memory address
 
 public: //Member function declarations
     Dog(string name);

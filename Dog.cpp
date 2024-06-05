@@ -12,16 +12,16 @@ Dog::Dog(std::string name) {//constructor function
 
 
 void Dog::run(int howFar, int howFast) {// dog runs 3+ legs
-    int sleepytime = howFast * 1000;//variable to convert usleep microseconds to milliseconds
     if (howFast < 0 or howFast > 1000) {//if howFast is out of range, set it to 0 (pause between # printouts)
         howFast = 0;
     }
+    int sleepytime = howFast * 1000;//variable to convert usleep microseconds to milliseconds
     if (howFar >= 0 and howFar <= 1000) {//while howFar is in range
 
         if (this->numberOfLegs < 3) {//function does not run if less than 3 legs
             return;
         } else if (numberOfLegs == 3) {//if exactly 3 legs, pause between #s is 25% greater
-            sleepytime += 1.25;
+            sleepytime *= 1.25;
         }
         cout << this->name << " is fast on " << this->numberOfLegs << " legs. Watch "
              << this->name;//display howFar & howFast values
@@ -36,7 +36,7 @@ void Dog::run(int howFar, int howFast) {// dog runs 3+ legs
 }
 void Dog::bark(int numTimes) {//barking, depends on weight +/- 100 lbs
     if (weight < 100) {
-        cout << "I'm a yap yap dog. " << endl;
+        cout <<"My name is "<<this->name<< " and I'm a yap yap dog. " << endl;
         for (int i = 1; i <= numTimes; i++) {
 
             cout << "Yap!!! " << endl;
@@ -47,7 +47,7 @@ void Dog::bark(int numTimes) {//barking, depends on weight +/- 100 lbs
             cout << "WOOF!!! " << endl;
         }
     }
-    cout << endl;
+    cout <<"weight = "<<weight << endl;//***TESTING weight DO need endl****
 }
 
 void Dog::wag(int numTimes, int howFast) {
@@ -82,15 +82,18 @@ void Dog::wagHelper(int numTimes, int howFast) {
 }
 
 void Dog::setWeight(float weight) {//weight of dog over 0 lbs
-    if (weight <= 0) {
-        return;
-    } else {
+    if (weight >= 1 and weight <=200) {
         this->weight = weight;//"this" not optional bc of weight parameter, right side is the parameter, left is internal
     }
 }
 
 void Dog::setNumberOfLegs(int numLegs) { //0 - 4 at least 3 to run
-    this->numberOfLegs = numLegs;
+    if (numLegs > 0 and numLegs <=4) {
+        this->numberOfLegs = numLegs;
+    }
+    else{
+        this->numberOfLegs = 4;
+    }
 }
 
 void Dog::setHappiness(bool isHappy) { //addBone function makes dog happy
@@ -104,6 +107,5 @@ void Dog::addBone() { //sets happiness to true **dynamically declares a new Bone
 
 //Destructor
 Dog::~Dog() {
-    this->name = name;
     cout << this->name << " is no longer with us." << endl;
 }
